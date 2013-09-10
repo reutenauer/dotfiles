@@ -9,7 +9,13 @@ else
 fi
 
 export PS1="%{[01;${col}m%}%m %l %T %~ %#%{[0m%} "
-alias ls='gls --color=auto -T 0 -F'
+if `which gls &>/dev/null`
+then alias ls='gls --color=auto -T 0 -F'
+else
+  if `/bin/ls --color &>/dev/null`
+  then alias ls='/bin/ls --color=auto -T 0 -F'
+  fi
+fi
 alias la='ls -a'
 alias ll='ls -hl'
 alias lla='ll -a'
