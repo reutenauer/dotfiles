@@ -1,0 +1,18 @@
+#!/usr/bin/ruby
+
+current_dir = File.expand_path(File.dirname(__FILE__))
+files_dir = File.join(current_dir, "files")
+
+def run_command(command)
+  puts command
+  `#{command}`
+end
+
+files = Dir[File.join(files_dir, "*")] + Dir[File.join(files_dir, ".[^\.]*")]
+files.each do |file|
+  run_command "ln -sfF #{file} $HOME/."
+end
+
+%w(.vim/backup).each do |dir|
+  run_command "mkdir -m 0700 -p $HOME/#{dir}"
+end
