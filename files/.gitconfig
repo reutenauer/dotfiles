@@ -8,3 +8,6 @@
 
 [push]
   default = tracking
+
+[alias]
+  info = ! git branch && git status -s && git stash list
