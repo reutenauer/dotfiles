@@ -1,0 +1,10 @@
+[user]
+  name = Arthur Reutenauer
+  # FIXME
+  email = Arthur.Reutenauer@xively.com
+
+[color]
+  ui = auto
+
+[push]
+  default = tracking
