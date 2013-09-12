@@ -24,3 +24,5 @@ export LS_COLORS='rs=0:di=01;36:ln=01;34:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 
 setopt noclobber
 setopt -h
+
+export PATH=$HOME/opt/bin:$PATH
