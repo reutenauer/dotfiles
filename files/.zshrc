@@ -26,3 +26,7 @@ setopt noclobber
 setopt -h
 
 export PATH=$HOME/opt/bin:$PATH
+
+bindkey -v
+bindkey '' beginning-of-line
+bindkey '' end-of-line
