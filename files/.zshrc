@@ -30,3 +30,6 @@ export PATH=$HOME/opt/bin:$PATH
 bindkey -v
 bindkey '' beginning-of-line
 bindkey '' end-of-line
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+source $HOME/.rvm/scripts/rvm
