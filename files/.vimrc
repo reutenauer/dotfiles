@@ -1,5 +1,6 @@
 syntax on
 set hlsearch
+set incsearch
 
 set backup
 set backupdir=$HOME/.vim/backup,.,/tmp
