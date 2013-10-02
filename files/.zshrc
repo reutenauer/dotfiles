@@ -8,6 +8,8 @@ else
   col='31'
 fi
 
+export BLOCKSIZE=1024
+
 export PS1="%{[01;${col}m%}%m %l %T %~ %#%{[0m%} "
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
@@ -25,7 +27,7 @@ export LS_COLORS='rs=0:di=01;36:ln=01;34:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 setopt noclobber
 setopt -h
 
-export PATH=$HOME/opt/bin:$PATH
+export PATH=$HOME/opt/bin:$HOME/bin:$PATH
 
 bindkey -v
 bindkey '' beginning-of-line
@@ -33,3 +35,4 @@ bindkey '' end-of-line
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+export PATH=/usr/local/texlive/2013/bin/x86_64-darwin:$PATH
