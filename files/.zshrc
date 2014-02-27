@@ -33,6 +33,8 @@ bindkey -v
 bindkey '' beginning-of-line
 bindkey '' end-of-line
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+if [ -d $HOME/.rvm ]; then
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+  [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+fi
 export PATH=/usr/local/texlive/2013/bin/x86_64-darwin:$PATH
