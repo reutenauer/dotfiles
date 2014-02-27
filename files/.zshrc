@@ -46,3 +46,8 @@ fi
 if [ -d /usr/local/Cellar/bazaar ]; then
   export PYTHONPATH=/usr/local/Cellar/bazaar/2.6.0/lib/python2.7/site-packages
 fi
+
+# Why not.
+alias grep='grep --color'
+alias fgrep='fgrep --color'
+alias egrep='egrep --color'
