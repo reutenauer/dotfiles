@@ -38,3 +38,11 @@ if [ -d $HOME/.rvm ]; then
   [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 fi
 export PATH=/usr/local/texlive/2013/bin/x86_64-darwin:$PATH
+
+if [ -d /usr/local/heroku ]; then
+  ### Added by the Heroku Toolbelt
+  export PATH="/usr/local/heroku/bin:$PATH"
+fi
+if [ -d /usr/local/Cellar/bazaar ]; then
+  export PYTHONPATH=/usr/local/Cellar/bazaar/2.6.0/lib/python2.7/site-packages
+fi
