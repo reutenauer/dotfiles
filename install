@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 current_dir = File.expand_path(File.dirname(__FILE__))
 files_dir = File.join(current_dir, "files")
