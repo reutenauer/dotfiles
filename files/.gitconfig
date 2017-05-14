@@ -1,7 +1,6 @@
 [user]
   name = Arthur Reutenauer
-  # FIXME
-  email = arthur@tibdit.com
+  email = arthur@reutenauer.eu
 
 [color]
   ui = auto
