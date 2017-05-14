@@ -13,7 +13,7 @@ files.each do |file|
   run_command "ln -sfF #{file} $HOME/."
 end
 
-run_command "cd $HOME/.ssh; ln -sfF ../dotfiles/.ssh/config"
+run_command "cd $HOME/.ssh; ln -sfF ../dotfiles/files/.ssh/config"
 
 %w(.vim/backup).each do |dir|
   run_command "mkdir -m 0700 -p $HOME/#{dir}"
