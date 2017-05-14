@@ -52,5 +52,5 @@ alias grep='grep --color'
 alias fgrep='fgrep --color'
 alias egrep='egrep --color'
 
-# Encodings: remember, on Mac OS X, Terminal may need to have “set locale
-# environment variables on startup _un_set in order to work over SSH.
+if [ `uname -s` = Darwin ]; then export LC_CTYPE=UTF-8; fi
+# In addition to that, unset “set locale environment variables on startup” in Terminal’s prefs.
