@@ -1,17 +1,10 @@
 export RSYNC_RSH=ssh
 export EDITOR=vim
 addrline=`/sbin/ifconfig | fgrep -A 1 eth | fgrep 'inet addr:192.168.60'`
-addrline2=`/sbin/ifconfig | grep -F 'inet 10.1.0.105'`
 echo "addrline2: $addrline2"
-if [ z"$addrline" = z ]
-then # Not on DDS
-  echo 1
+if [ z"$addrline" = z ] && [ z"$addrline2" = z ]; then # Not on DDS or at Dragarbrunnsgatan 78D
   col='33'
-elif [ z"$addrline2" = z ]; then # Not at Dragarbrunnsgatan 78D
-  echo 2
-  col='31'
 else
-  echo 3
   col=36
 fi
 
