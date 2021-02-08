@@ -1,7 +1,7 @@
 export RSYNC_RSH=ssh
 export EDITOR=vim
 addrline=`/sbin/ifconfig | grep -F 'inet 10.1.0.105'`
-if [ z`uname -n` = zheiding ]; then
+if [ z`uname -n` = zheiding ] || [ z`uname -n` = zheiding.local ]; then
   col=36
 else
   col=33
