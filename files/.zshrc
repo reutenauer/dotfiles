@@ -1,10 +1,10 @@
 export RSYNC_RSH=ssh
 export EDITOR=vim
 addrline=`/sbin/ifconfig | grep -F 'inet 10.1.0.105'`
-if [ z"$addrline" = z ]; then # Not at Dragarbrunnsgatan 78D
-  col='33'
-else
+if [ z`uname -n` = zheiding ]; then
   col=36
+else
+  col=33
 fi
 
 export BLOCKSIZE=1024
