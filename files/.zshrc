@@ -50,6 +50,3 @@ fi
 alias grep='grep --color'
 alias fgrep='fgrep --color'
 alias egrep='egrep --color'
-
-if [ `uname -s` = Darwin ]; then export LC_CTYPE=UTF-8; fi
-# In addition to that, unset “set locale environment variables on startup” in Terminal’s prefs.
