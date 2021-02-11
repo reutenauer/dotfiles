@@ -37,12 +37,7 @@ listfiles(['files']).each do |infile|
   file.close
 end
 
-puts listfiles(['files', 'secret-files']).class
 listfiles(['files', 'secret-files']).each do |file|
-  # puts file
-end
-listfiles(['files', 'secret-files']).each do |file|
-  puts file.class, file
   next if file =~ /\.in$/
   run_command "ln -sfF #{file} $HOME/."
 end
