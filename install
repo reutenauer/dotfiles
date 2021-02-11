@@ -1,15 +1,49 @@
 #!/usr/bin/env ruby
 
-current_dir = File.expand_path(File.dirname(__FILE__))
-files_dir = File.join(current_dir, "files")
+def current_dir
+  File.expand_path(File.dirname(__FILE__))
+end
 
 def run_command(command)
   puts command
   `#{command}`
 end
 
-files = Dir[File.join(files_dir, "*")] + Dir[File.join(files_dir, ".[^\.]*")]
-files.each do |file|
+def listdirs(basenames)
+  basenames.map { |dir| File.join(current_dir, dir) }
+end
+
+def listfiles(dirs)
+  listdirs(dirs).map do |dir|
+    Dir[File.join(dir, "*")] + Dir[File.join(dir, ".[^\.]*")]
+  end.flatten
+end
+
+secrets = Hash.new
+File.read(File.join(current_dir, 'secrets')).each_line do |line|
+  if line =~ /^([^=]+)\s*=\s*([^=]+)$/
+    secrets[$1.strip] = $2.strip
+  end
+end
+
+listfiles(['files']).each do |infile|
+  next unless infile =~ /\.in$/
+  infilecontents = File.read(infile)
+  secrets.each do |key, value|
+    infilecontents.gsub! "{{ #{key} }}", value
+  end
+  file = File.open(infile.gsub(/\.in$/, '').gsub('/files/', '/secret-files/'), 'w')
+  file.write infilecontents
+  file.close
+end
+
+puts listfiles(['files', 'secret-files']).class
+listfiles(['files', 'secret-files']).each do |file|
+  # puts file
+end
+listfiles(['files', 'secret-files']).each do |file|
+  puts file.class, file
+  next if file =~ /\.in$/
   run_command "ln -sfF #{file} $HOME/."
 end
 

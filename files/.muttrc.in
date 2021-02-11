@@ -1,0 +1,6 @@
+set imap_user=arthur.rosendahl@freespee.com
+set imap_pass={{ gmail-password }}
+set folder=imaps://imap.gmail.com
+set from="arthur.rosendahl@freespee.com"
+set smtp_pass={{ gmail-password }}
+set smtp_url=smtps://arthur.rosendahl%40freespee.com:{{ gmail-password }}@smtp.gmail.com
