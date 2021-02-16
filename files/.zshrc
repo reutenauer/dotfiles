@@ -10,7 +10,7 @@ export BLOCKSIZE=1024
 
 function __git_prompt_info() {
   if $(git branch &>/dev/null); then
-    echo ' %{[01;32m%}'\[$(git branch | grep -E '^\*' | cut -c 3-)\]"%{[01;${col}m%}"
+    echo ' %{[01;32m%}'\[\$(git branch | grep -E '^\*' | cut -c 3-)\]"%{[01;${col}m%}"
   fi
 }
 
