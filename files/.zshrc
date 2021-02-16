@@ -11,7 +11,7 @@ export BLOCKSIZE=1024
 function __git_prompt_info() {
   plain_git_prompt=$(__git_prompt_info_plain)
   if [ ! -z "$plain_git_prompt" ]; then
-    echo -n ' %{[01;32m%}['"$plain_git_prompt]%{[01;${col}m%}"
+    echo -n '%{[01;32m%}['"$plain_git_prompt]%{[01;${col}m%} "
   else
     echo -n ''
   fi
@@ -22,7 +22,7 @@ function __git_prompt_info_plain() {
 }
 
 setopt PROMPT_SUBST
-PS1="%{[01;${col}m%}"'%m %l %T$(__git_prompt_info) %~ %#%{[0m%} '
+PS1="%{[01;${col}m%}"'%m %l %T %~ $(__git_prompt_info)%#%{[0m%} '
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
