@@ -9,9 +9,7 @@ fi
 export BLOCKSIZE=1024
 
 function __git_prompt_info() {
-  if $(git branch &>/dev/null); then
-    echo ' %{[01;32m%}'\[\$(git branch | grep -E '^\*' | cut -c 3-)\]"%{[01;${col}m%}"
-  fi
+  $(git branch &>/dev/null) && echo ' %{[01;32m%}'\[\$(git branch | grep -E '^\*' | cut -c 3-)\]"%{[01;${col}m%}"
 }
 
 function parse_git_branch() {
@@ -19,8 +17,7 @@ function parse_git_branch() {
 }
 
 setopt PROMPT_SUBST
-PS1="%{[01;${col}m%}"'%m %l %T%c$(parse_git_branch) %~ %#%{[0m%} '
-# PS1='[%n]@%m %c$(parse_git_branch)]%# '
+PS1="%{[01;${col}m%}"'%m %l %T%c$(__git_prompt_info) %~ %#%{[0m%} '
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
