@@ -9,7 +9,8 @@ fi
 export BLOCKSIZE=1024
 
 function __git_prompt_info() {
-  $(git branch &>/dev/null) && echo ' %{[01;32m%}'\[\$(git branch | grep -E '^\*' | cut -c 3-)\]"%{[01;${col}m%}"
+  git branch 2>/dev/null | grep -E '^\*' | cut -c 3-
+  # && echo ' %{[01;32m%}'\[\$(git branch | )\]"%{[01;${col}m%}"
 }
 
 function parse_git_branch() {
