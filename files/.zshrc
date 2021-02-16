@@ -14,7 +14,11 @@ function __git_prompt_info() {
   fi
 }
 
-export PS1="%{[01;${col}m%}%m %l %T$(__git_prompt_info) %~ %#%{[0m%} "
+function parse_git_branch() {
+  git branch | grep -E '^\*' | cut -c 3-
+}
+
+export PS1="%{[01;${col}m%}%m %l %T$$(parse_git_branch) %~ %#%{[0m%} "
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
