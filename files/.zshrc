@@ -24,10 +24,25 @@ export BLOCKSIZE=1024
 # ✔️ <2714, FE0F>
 # ✖︎ <2716, FE0E>
 # ✖️ <2716, FE0F>
+# ✗︎ <2717, FE0E>
+# ✗️ <2717, FE0F>
 # ✘︎ <2718, FE0E>
 # ✘️ <2718, FE0F>
 
 # ❦
+
+function __git_prompt() {
+  plain_git_prompt=$(__git_branch_name)
+  if [ ! -z "$plain_git_prompt" ]; then
+    echo -n '%{[01;32m%}['"$plain_git_prompt] $(__git_clean_or_dirty)%{[01;${col}m%} "
+  else
+    echo -n ''
+  fi
+}
+
+function __git_branch_name() {
+  git branch 2>/dev/null | grep -E '^\*' | cut -c 3-
+}
 
 function __git_clean_or_dirty() {
   if [ -z "$(git status -s)" ]; then
@@ -37,21 +52,8 @@ function __git_clean_or_dirty() {
   fi
 }
 
-function __git_prompt_info() {
-  plain_git_prompt=$(__git_prompt_info_plain)
-  if [ ! -z "$plain_git_prompt" ]; then
-    echo -n '%{[01;32m%}['"$plain_git_prompt] $(__git_clean_or_dirty)%{[01;${col}m%} "
-  else
-    echo -n ''
-  fi
-}
-
-function __git_prompt_info_plain() {
-  git branch 2>/dev/null | grep -E '^\*' | cut -c 3-
-}
-
 setopt PROMPT_SUBST
-PS1="%{[01;${col}m%}"'%m %l %T %~ $(__git_prompt_info)%#%{[0m%} '
+PS1="%{[01;${col}m%}"'%m %l %T %~ $(__git_prompt)%#%{[0m%} '
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
