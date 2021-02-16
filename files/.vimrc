@@ -17,3 +17,5 @@ let botdirname=substitute(execute("pwd"), '^.*/', '', '')
 " %B: byte value (hexadecimal), %n: buffer number
 set rulerformat=%48(%F,%y,%O,u:%B,b:%n,%{botdirname}%)
 set ruler
+
+set number
