@@ -6,6 +6,18 @@ else
   __prompt_main_colour=33
 fi
 
+function __set_prompt_colour() {
+  echo -n "%{[01;${__prompt_main_colour}m%}"
+}
+
+function __set_git_colour() {
+  echo -n '%{[01;32m%}'
+}
+
+function __set_white() {
+  echo -n '%{[0m%}'
+}
+
 export BLOCKSIZE=1024
 
 # ⍻ U+237B NOT CHECK MARK
@@ -34,7 +46,7 @@ export BLOCKSIZE=1024
 function __git_prompt() {
   plain_git_prompt=$(__git_branch_name)
   if [ ! -z "$plain_git_prompt" ]; then
-    echo -n '%{[01;32m%}['"$plain_git_prompt] $(__git_clean_or_dirty)%{[01;${__prompt_main_colour}m%} "
+    echo -n "$(__set_git_colour)[$plain_git_prompt] $(__git_clean_or_dirty)$(__set_prompt_colour) "
   else
     echo -n ''
   fi
@@ -53,7 +65,7 @@ function __git_clean_or_dirty() {
 }
 
 setopt PROMPT_SUBST
-PS1="%{[01;${__prompt_main_colour}m%}"'%m %l %T %~ $(__git_prompt)%#%{[0m%} '
+PS1='$(__set_prompt_colour)%m %l %T %~ $(__git_prompt)%#$(__set_white) '
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
