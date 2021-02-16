@@ -19,11 +19,6 @@ function __git_prompt_info() {
 
 function __git_prompt_info_plain() {
   git branch 2>/dev/null | grep -E '^\*' | cut -c 3-
-  # && echo \$(git branch | )\]""
-}
-
-function parse_git_branch() {
-  git branch | grep -E '^\*' | cut -c 3-
 }
 
 setopt PROMPT_SUBST
