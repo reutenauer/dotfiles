@@ -8,10 +8,39 @@ fi
 
 export BLOCKSIZE=1024
 
+# ⍻ U+237B NOT CHECK MARK
+# ✓ U+2713 CHECK MARK
+# ✔ U+2714 HEAVY CHECK MARK
+# ✕ U+2715 MULTIPLICATION X
+# ✖ U+2716 HEAVY MULTIPLICATION X
+# ✗ U+2717 BALLOT X
+# ✘ U+2718 HEAVY BALLOT X
+
+# U+FE0E VARIATION SELECTOR-15
+# U+FE0F VARIATION SELECTOR-16
+# ✓︎ <2713, FE0E>
+# ✓️ <2713, FE0F>
+# ✔︎ <2714, FE0E>
+# ✔️ <2714, FE0F>
+# ✖︎ <2716, FE0E>
+# ✖️ <2716, FE0F>
+# ✘︎ <2718, FE0E>
+# ✘️ <2718, FE0F>
+
+# ❦
+
+function __git_clean_or_dirty() {
+  if [ -z "$(git status -s)" ]; then
+    echo -n '(clean)'
+  else
+    echo -n '(dirty)'
+  fi
+}
+
 function __git_prompt_info() {
   plain_git_prompt=$(__git_prompt_info_plain)
   if [ ! -z "$plain_git_prompt" ]; then
-    echo -n '%{[01;32m%}['"$plain_git_prompt]%{[01;${col}m%} "
+    echo -n '%{[01;32m%}['"$plain_git_prompt]%{[01;${col}m%} $(__git_clean_or_dirty) "
   else
     echo -n ''
   fi
