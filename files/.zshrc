@@ -31,9 +31,9 @@ export BLOCKSIZE=1024
 
 function __git_clean_or_dirty() {
   if [ -z "$(git status -s)" ]; then
-    echo -n '%{[01;32m%}✔️ '
+    echo -n '%{[01;32m%}✔'
   else
-    echo -n '%{[01;31m%}✖️ '
+    echo -n '%{[01;31m%}✖'
   fi
 }
 
