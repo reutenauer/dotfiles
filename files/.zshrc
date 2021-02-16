@@ -40,7 +40,7 @@ function __git_clean_or_dirty() {
 function __git_prompt_info() {
   plain_git_prompt=$(__git_prompt_info_plain)
   if [ ! -z "$plain_git_prompt" ]; then
-    echo -n '%{[01;32m%}['"$plain_git_prompt]%{[01;${col}m%} $(__git_clean_or_dirty) "
+    echo -n '%{[01;32m%}['"$plain_git_prompt] $(__git_clean_or_dirty)%{[01;${col}m%} "
   else
     echo -n ''
   fi
