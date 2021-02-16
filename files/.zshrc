@@ -11,10 +11,13 @@ export BLOCKSIZE=1024
 function __git_prompt_info() {
   plain_git_prompt=__git_prompt_info_plain
   if [ ! -z "$plain_git_prompt" ]; then
-    echo -n ' %{[01;32m%}['__git_prompt_info_plain"%{[01;${col}m%}"
+    echo -n ' %{[01;32m%}['"$plain_git_prompt%{[01;${col}m%}"
   else
     echo -n ''
   fi
+}
+
+function __git_prompt_info_plain() {
   git branch 2>/dev/null | grep -E '^\*' | cut -c 3-
   # && echo \$(git branch | )\]""
 }
