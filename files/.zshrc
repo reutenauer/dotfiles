@@ -1,9 +1,9 @@
 export RSYNC_RSH=ssh
 export EDITOR=vim
 if [ z`hostname -s` = zheiding ]; then
-  col=36
+  __prompt_main_colour=36
 else
-  col=33
+  __prompt_main_colour=33
 fi
 
 export BLOCKSIZE=1024
@@ -34,7 +34,7 @@ export BLOCKSIZE=1024
 function __git_prompt() {
   plain_git_prompt=$(__git_branch_name)
   if [ ! -z "$plain_git_prompt" ]; then
-    echo -n '%{[01;32m%}['"$plain_git_prompt] $(__git_clean_or_dirty)%{[01;${col}m%} "
+    echo -n '%{[01;32m%}['"$plain_git_prompt] $(__git_clean_or_dirty)%{[01;${__prompt_main_colour}m%} "
   else
     echo -n ''
   fi
@@ -53,7 +53,7 @@ function __git_clean_or_dirty() {
 }
 
 setopt PROMPT_SUBST
-PS1="%{[01;${col}m%}"'%m %l %T %~ $(__git_prompt)%#%{[0m%} '
+PS1="%{[01;${__prompt_main_colour}m%}"'%m %l %T %~ $(__git_prompt)%#%{[0m%} '
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
