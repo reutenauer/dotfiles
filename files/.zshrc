@@ -9,7 +9,11 @@ fi
 
 export BLOCKSIZE=1024
 
-export PS1="%{[01;${col}m%}%m %l %T`if $(git branch &>/dev/null); then echo ' '[$(git branch | grep -E '^\*' | cut -c 3-)]; fi` %~ %#%{[0m%} "
+function git_prompt_info() {
+  if $(git branch &>/dev/null); then echo ' '[$(git branch | grep -E '^\*' | cut -c 3-)]; fi
+}
+
+export PS1="%{[01;${col}m%}%m %l %T$(git_prompt_info) %~ %#%{[0m%} "
 if `which gls &>/dev/null`
 then alias ls='gls --color=auto -T 0 -F'
 else
