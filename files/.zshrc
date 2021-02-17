@@ -60,7 +60,11 @@ function __git_clean_or_dirty() {
   if [ -z "$(git status -s)" ]; then
     echo -n '%{[01;32m%}✔'
   else
-    echo -n '%{[01;31m%}✗'
+    if [ -z "$(git status -s | grep -ve '^\?\?')" ]; then
+      echo -n '%{[01;33m%}✗'
+    else
+      echo -n '%{[01;31m%}✗'
+    fi
   fi
 }
 
