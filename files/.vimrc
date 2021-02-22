@@ -18,4 +18,5 @@ let botdirname=substitute(execute("pwd"), '^.*/', '', '')
 set rulerformat=%48(%F,%y,%O,u:%B,b:%n,%{botdirname}%)
 set ruler
 
+" TODO Make development-only
 set number
