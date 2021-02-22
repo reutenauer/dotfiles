@@ -110,3 +110,5 @@ fi
 alias grep='grep --color'
 alias fgrep='fgrep --color'
 alias egrep='egrep --color'
+
+cdpath=(. .. ~)
