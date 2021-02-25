@@ -31,12 +31,16 @@ function s:current_word()
 endfunction
 
 function! s:grepcurword()
-  " grep -r s:current_word() .
-  echo("foo")
+  " echo("foo")
+  grep -r s:current_word() .
 endfunction
 
 map Y s:grepcurword()
 
 function Currword()
   return s:current_word()
+endfunction
+
+function Grcw()
+  return s:grepcurword()
 endfunction
