@@ -20,3 +20,23 @@ set ruler
 
 " TODO Make development-only
 set number
+
+let l=getline('.')
+let c=v:char
+
+set showmatch
+
+function s:current_word()
+  return getline('.')[searchpos('\s', 'nb')[1] : searchpos('\s', 'n')[1]-2]
+endfunction
+
+function! s:grepcurword()
+  " grep -r s:current_word() .
+  echo("foo")
+endfunction
+
+map Y s:grepcurword()
+
+function Currword()
+  return s:current_word()
+endfunction
