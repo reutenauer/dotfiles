@@ -1,0 +1,5 @@
+application/pdf; open '%s'
+application/x-pdf; open '%s'
+text/html; links -dump '%s'; edit=lynx '%s'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document: doc2text '%s' -
+application/msword; antiword '%s'
