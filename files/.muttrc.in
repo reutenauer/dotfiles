@@ -11,6 +11,7 @@ set sort_aux=last-date
 auto_view text/html
 auto_view application/msword
 
+# Next three “paragraphs” from phare:/etc/skel/.muttrc
 color hdrdefault brightcyan     default
 mono  hdrdefault bold
 color quoted     red            default
@@ -26,8 +27,8 @@ color normal     default        default
 color attachment brightmagenta  default
 color search     white          red
 
-color body magenta white "(ftp|https?)://[-a-z0-9_.+!*',;/?:@&=%~#]+"
-color body red     white [-a-z0-9_.]+@[-a-z0-9_.]+
+# color body magenta white "(ftp|https?)://[-a-z0-9_.+!*',;/?:@&=%~#]+"
+# color body red     white [-a-z0-9_.]+@[-a-z0-9_.]+
 
-mono body underline "(ftp|https?)://[-a-z0-9_.+!*',;/?:@&=%~#]+"
-mono body underline [-a-z0-9_.]+@[-a-z0-9_.]+
+# mono body underline "(ftp|https?)://[-a-z0-9_.+!*',;/?:@&=%~#]+"
+# mono body underline [-a-z0-9_.]+@[-a-z0-9_.]+
