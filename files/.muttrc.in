@@ -10,3 +10,24 @@ set sort_aux=last-date
 
 auto_view text/html
 auto_view application/msword
+
+color hdrdefault brightcyan     default
+mono  hdrdefault bold
+color quoted     red            default
+color signature  red            default
+color indicator  white          cyan
+color error      brightred      default
+color status     brightyellow   blue
+color tree       red            default
+color tilde      green          default
+mono  tilde      bold
+color message    default        default
+color normal     default        default
+color attachment brightmagenta  default
+color search     white          red
+
+color body magenta white "(ftp|https?)://[-a-z0-9_.+!*',;/?:@&=%~#]+"
+color body red     white [-a-z0-9_.]+@[-a-z0-9_.]+
+
+mono body underline "(ftp|https?)://[-a-z0-9_.+!*',;/?:@&=%~#]+"
+mono body underline [-a-z0-9_.]+@[-a-z0-9_.]+
