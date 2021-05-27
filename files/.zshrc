@@ -1,6 +1,6 @@
 export RSYNC_RSH=ssh
 export EDITOR=vim
-if [ z`hostname -s` = zheiding ]; then
+if [ z`hostname -s` = zheiding -o z`hostname -s` = zhazelius ]; then
   __prompt_main_colour=36
 elif [ z`hostname -s` = zfossa ]; then
   __prompt_main_colour=35
