@@ -26,6 +26,10 @@ File.read(File.join(current_dir, 'secrets')).each_line do |line|
   end
 end
 
+unless Dir.exist? 'secret-files'
+  Dir.mkdir 'secret-files'
+end
+
 listfiles(['files']).each do |infile|
   next unless infile =~ /\.in$/
   infilecontents = File.read(infile)
