@@ -6,6 +6,8 @@ elif [ z`hostname -s` = zfossa ]; then
   __prompt_main_colour=35
 elif [ z`hostname -s` = ztug ]; then
   __prompt_main_colour=34
+elif [ z`hostname -s` = zUU-THVQCF217C ]; then
+  __prompt_main_colour=31
 else
   __prompt_main_colour=33
 fi
@@ -73,6 +75,7 @@ function __git_clean_or_dirty() {
   fi
 }
 
+[ -d /opt/homebrew/bin ] && PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 setopt PROMPT_SUBST
 PS1='$(__set_prompt_colour)%m %l %T %~ $(__git_prompt)%#$(__set_white) '
 if `which gls &>/dev/null`
