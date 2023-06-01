@@ -104,7 +104,13 @@ if [ -d $HOME/.rvm ]; then
   PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
   [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 fi
-export PATH=/usr/local/texlive/2013/bin/x86_64-darwin:$PATH
+
+arch=`uname -m`-`echo \`uname -o\` | tr A-Z a-z`
+if [ `date '+%m'` -le 6 ]; then
+  export PATH=/usr/local/texlive/$((`date '+%Y'` - 1))/bin/$arch:$PATH
+else
+  export PATH=/usr/local/texlive/`date '+%Y'`/bin/$arch:$PATH
+fi
 
 if [ -d /usr/local/heroku ]; then
   ### Added by the Heroku Toolbelt
