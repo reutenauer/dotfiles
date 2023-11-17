@@ -126,3 +126,7 @@ alias fgrep='fgrep --color'
 alias egrep='egrep --color'
 
 cdpath=(. .. ~) # TODO Make completion work too!
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/artre200/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
