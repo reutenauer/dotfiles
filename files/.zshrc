@@ -8,6 +8,8 @@ elif [ z`hostname -s` = ztug ]; then
   __prompt_main_colour=34
 elif [ z`hostname -s` = zUU-THVQCF217C ]; then
   __prompt_main_colour=31
+elif [ z`hostname -s` = zphare ]; then
+  __prompt_main_colour=32
 else
   __prompt_main_colour=33
 fi
