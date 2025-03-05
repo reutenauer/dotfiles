@@ -64,7 +64,6 @@ function __git_branch_name() {
   git branch 2>/dev/null | grep -E '^\*' | cut -c 3-
 }
 
-# TODO Add U+2716 in *both* colours if “dirty” with modified files and untracked ones!
 function __git_clean_or_dirty() {
   if [ -z "$(git status -s)" ]; then
     echo -n '%{[01;32m%}✔'
